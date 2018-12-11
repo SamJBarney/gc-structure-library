@@ -34,13 +34,27 @@ export class GCFooterComponent implements OnInit {
     if (this.location !== target_location) {
       data.type = 'external';
 
+      let url = window.location.href
+
       // Build a different url depending on where app needs to go
-      switch(target_location) {
-        case 'bbl':
-          data.path = `https://bbl.gamechanger.studio/#/%{teamId}/${path}`;
-        case 'team-site':
-          data.path = `https://${this.teamId}.gamechanger.studio/#/`;
+      // This block of code is horrible
+      if (!url.startsWith('https://develop.gamechanger.studio')) {
+        switch(target_location) {
+          case 'bbl':
+            data.path = `https://bbl.gamechanger.studio/#/${path}`;
+          case 'team-site':
+            data.path = `https://${this.teamId}.gamechanger.studio/#/`;
+        }
+      } else {
+        switch(target_location) {
+          case 'bbl':
+            data.path = `https://develop.gamechanger.studio/big-bash-buddy/#/${path}`;
+          case 'team-site':
+            data.path = `https://develop.gamechanger.studio/${this.teamId}/#/`;
+        }
       }
+
+      
     }
 
     // Send the path info off to any registered handler

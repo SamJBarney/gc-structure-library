@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'gc-footer',
   templateUrl: './gc-footer.component.html',
-  styleUrls: ['./gc-footer.component.css']
+  styleUrls: ['./gc-footer.component.scss']
 })
 export class GCFooterComponent implements OnInit {
   @Input()
@@ -39,7 +39,7 @@ export class GCFooterComponent implements OnInit {
         case 'bbl':
           data.path = `https://bbl.gamechanger.studio/#/%{teamId}/${path}`;
         case 'team-site':
-          data.path = `https://${teamId}.gamechanger.studio/#/`;
+          data.path = `https://${this.teamId}.gamechanger.studio/#/`;
       }
     }
 

@@ -1,11 +1,12 @@
 {
   "name": "gc-structure",
   "version": "0.0.1",
+  "scripts": {
+    "postinstall": "cp node_modules/@gamechanger/gc-structure/assets/* src/assets/gc-structure"
+  },
   "peerDependencies": {
     "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0"
-  },
-  "dependencies": {
+    "@angular/core": "^7.1.0",
     "font-awesome": "^4.7.0"
   }
 }

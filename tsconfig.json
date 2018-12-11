@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "gc-structure": [
+        "dist/gc-structure"
+      ],
+      "gc-structure/*": [
+        "dist/gc-structure/*"
+      ]
+    }
   }
 }

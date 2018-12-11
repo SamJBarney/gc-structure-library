@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "gc-structure": {
+      "root": "projects/gc-structure",
+      "sourceRoot": "projects/gc-structure/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gc-structure/tsconfig.lib.json",
+            "project": "projects/gc-structure/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gc-structure/src/test.ts",
+            "tsConfig": "projects/gc-structure/tsconfig.spec.json",
+            "karmaConfig": "projects/gc-structure/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gc-structure/tsconfig.lib.json",
+              "projects/gc-structure/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "gc-structure-library"

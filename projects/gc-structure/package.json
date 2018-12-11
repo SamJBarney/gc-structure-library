@@ -1,0 +1,11 @@
+{
+  "name": "gc-structure",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  }
+}

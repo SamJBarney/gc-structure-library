@@ -1,0 +1,18 @@
+<footer>
+  <div (click)="onMenuItemClicked('bbl', '/team/' + teamId + '/')" [ngClass]="{ 'item': true, 'active': selectedItem == 0 }" >
+    <span class="fa fa-home" ></span>
+    <span class="title">HOME</span>
+  </div>
+  <div (click)="onMenuItemClicked('bbl', '/team/' + teamId + '/video')" [ngClass]="{ 'item': true, 'active': selectedItem == 1 }" >
+    <span class="fa fa-play" ></span>
+    <span class="title">PLAY</span>
+  </div>
+  <div (click)="onMenuItemClicked('team-site')" [ngClass]="{ 'item': true, 'active': selectedItem == 2 }" >
+    <span class="fa fa-gamepad" ></span>
+    <span class="title">GAMES</span>
+  </div>
+  <div (click)="onMenuItemClicked('bbl', '/team/' + teamId + '/profile')" [ngClass]="{ 'item': true, 'active': selectedItem == 3 }" >
+    <span class="fa fa-user" ></span>
+    <span class="title">PROFILE</span>
+  </div>
+</footer>

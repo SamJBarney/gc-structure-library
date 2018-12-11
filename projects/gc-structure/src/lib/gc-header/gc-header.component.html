@@ -1,0 +1,7 @@
+<header *ngIf="teamId">
+  <img class="header-bg" src="assets/images/{{ teamId }}/header/header.png"/>
+  <img class="brand" *ngIf="teamId !== 'melbourne-renegades'" src="assets/images/teams/logo/{{ teamId }}.png" />
+  <img class="brand" *ngIf="teamId === 'melbourne-renegades'" src="assets/images/teams/logo/{{ teamId }}-white.png" />
+  <img class="title" src="assets/images/{{ teamId }}/header/{{ headerTitle }}.png" />
+  <img class="logo" src="assets/images/logo.png" />
+</header>

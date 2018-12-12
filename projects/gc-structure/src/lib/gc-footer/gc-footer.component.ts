@@ -10,6 +10,9 @@ export class GCFooterComponent implements OnInit {
   teamId: string
 
   @Input()
+  branch: string
+
+  @Input()
   selectedItem: number
 
   @Input()
@@ -34,31 +37,38 @@ export class GCFooterComponent implements OnInit {
     if (this.location !== target_location) {
       data.type = 'external';
 
-      let url = window.location.href
-
       // Build a different url depending on where app needs to go
-      // This block of code is horrible
-      if (!url.startsWith('https://develop.gamechanger.studio')) {
-        switch(target_location) {
-          case 'bbl':
-            data.path = `https://bbl.gamechanger.studio/#/${path}`;
-          case 'team-site':
-            data.path = `https://${this.teamId}.gamechanger.studio/#/`;
-        }
-      } else {
-        switch(target_location) {
-          case 'bbl':
-            data.path = `https://develop.gamechanger.studio/big-bash-buddy/#/${path}`;
-          case 'team-site':
-            data.path = `https://develop.gamechanger.studio/${this.teamId}/#/`;
-        }
+      switch(target_location) {
+        case 'bbl':
+          data.path = this.buildBBLRoute(path);
+        case 'team-site':
+          data.path = this.buildTeamSiteRoute(path);
       }
-
-      
     }
 
     // Send the path info off to any registered handler
     this.onRoute.emit(data);
   }
 
+  private buildBBLRoute(path: string) : string {
+    if (this.isProdBranch()) {
+      return `https://bbl.gamechanger.studio/#/${path}`;
+    }
+
+    // Dev branch path
+    return `https://develop.gamechanger.studio/big-bash-buddy/#/${path}`;
+  }
+
+  private buildTeamSiteRoute(path: string) : string {
+    if (this.isProdBranch()) {
+      return `https://${this.teamId}.gamechanger.studio/#/`;
+    }
+
+    // Dev Branch path
+    return `https://develop.gamechanger.studio/${this.teamId}/#/`;
+  }
+
+  private isProdBranch() : boolean {
+    return !(this.branch.startsWith('develop') || this.branch == 'debug');
+  }
 }

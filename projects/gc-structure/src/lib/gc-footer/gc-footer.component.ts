@@ -36,13 +36,15 @@ export class GCFooterComponent implements OnInit {
     // If the target location is another app, build an external url to pass back
     if (this.location !== target_location) {
       data.type = 'external';
-
+      
       // Build a different url depending on where app needs to go
       switch(target_location) {
         case 'bbl':
           data.path = this.buildBBLRoute(path);
+          break;
         case 'team-site':
           data.path = this.buildTeamSiteRoute(path);
+          break;
       }
     }
 

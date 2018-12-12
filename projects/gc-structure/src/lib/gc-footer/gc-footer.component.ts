@@ -69,6 +69,6 @@ export class GCFooterComponent implements OnInit {
   }
 
   private isProdBranch() : boolean {
-    return !(this.branch.startsWith('develop') || this.branch == 'debug');
+    return !(this.branch.startsWith('develop') || this.branch === 'debug');
   }
 }
